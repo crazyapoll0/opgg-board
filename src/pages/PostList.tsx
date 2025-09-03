@@ -1,10 +1,19 @@
 import { useState } from "react";
 import type { Post } from "../type";
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
+import { getPosts } from "../api/boardApi";
+import { Button } from "@mui/material";
 
 
 export default function PostList() {
-   const [data. setData] = useState<Post[]>([]);
+   const [data, setData] = useState<Post[]>([]);
+
+
+    const loadPostData = () => {
+        getPosts()
+            .then(res => setData(res))
+            .catch(err=> console.log(err))
+    }
 
 
    const columns: GridColDef[] = [
@@ -12,27 +21,31 @@ export default function PostList() {
   { field: "author", headerName: "작성자", width: 150 },
   { field: "createdAt", headerName: "작성일", width: 150 },
   { field: "comments", headerName: "댓글", width: 100 },
-  {
-    field: "actions",
-    headerName: "관리",
-    width: 150,
-    renderCell: (params) => (
-      <>
-        <button>수정</button>
-        <button>삭제</button>
-      </>
-    ),
-  },
+  // {
+  //   field: "actions",
+  //   headerName: "관리",
+  //   width: 150,
+  //   renderCell: (params) => (
+  //     <>
+  //       <button>수정</button>
+  //       <button>삭제</button>
+  //     </>
+  //   ),
+  // },
 ];
 
    return (
+    
     <>
+    
+    <Button onClick={loadPostData}>데이터 로드</Button>
     <DataGrid 
-    rows={data}
+        rows={data}
         columns={columns}
         getRowId={(row) => row.id}
         disableRowSelectionOnClick={true}
-        showToolbar/>
+        showToolbar
+    />
     </>
    )
 
