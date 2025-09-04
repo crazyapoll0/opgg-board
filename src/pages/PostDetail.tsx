@@ -1,7 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+<<<<<<< Updated upstream
 import { getPostById } from "../api/boardApi"; // 게시글 ID로 데이터를 가져오는 함수
 import type { Post } from "../type"; // Post 타입 정의
+=======
+import type { Post } from "../type";
+import { getPosts } from "../api/boardApi";
+>>>>>>> Stashed changes
 
 export default function PostDetail() {
   const { id } = useParams(); // URL에서 ID 추출

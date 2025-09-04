@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import PostList from "./pages/PostList";
 import PostForm from "./components/PostForm";
 import Banner from "./components/Banner";
+import PostDetail from "./pages/PostDetail";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
             backgroundColor: "#43c7a0",
             color: "#fff",
           }}
+<<<<<<< Updated upstream
         >
           <Toolbar>
             <a href="/" style={{ textDecoration: "none", color: "inherit" }}><Typography variant="h6">TalkBoard</Typography></a>
@@ -31,5 +33,22 @@ export default function App() {
         </Routes>
       </Container>
     </>
+=======
+          >
+            <Toolbar>
+              <Typography variant="h6">TalkBoard</Typography>
+            </Toolbar>
+          </AppBar>
+          <Banner />
+          <AddPost />
+          <PostDetail />
+          <PostList />
+          {/* <Routes>
+            <Route path="/" element={<PostList />} />
+            <Route path="/create" element={<AddPost />} />
+          </Routes> */}
+  </Container>
+  </>
+>>>>>>> Stashed changes
   );
 }
