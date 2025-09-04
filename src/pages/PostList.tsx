@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import type { Post } from "../type";
 import { DataGrid, type GridColDef, type GridRowParams } from "@mui/x-data-grid";
 import { getPosts } from "../api/boardApi";
-import { Button  } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import AddPost from "../components/AddPost";
 
