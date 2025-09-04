@@ -40,3 +40,34 @@
 .read-the-docs {
   color: #888;
 }
+
+
+
+
+
+/* PostDetail.css */
+.post-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-container h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.post-container p {
+  font-size: 16px;
+  color: #555;
+  margin: 10px 0;
+}
+
+.post-container strong {
+  color: #333;
+}
