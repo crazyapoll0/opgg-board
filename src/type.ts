@@ -4,7 +4,7 @@ export type Post = {
   content?: string;
   author?: string;
   createdAt?: string;
-  like?: number;
+  heart?: number;
 }
 
 
