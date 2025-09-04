@@ -34,7 +34,7 @@ export default function PostDetail() {
       <p><strong>작성일:</strong> {post.createdAt}</p>
       <p><strong>내용:</strong> {post.content}</p> {/* 내용이 있을 경우 */}
       <p><strong>좋아요:</strong> {post.like}</p>
-      
     </div>
   );
 }
+//수정 없음. 
