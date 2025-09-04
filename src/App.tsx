@@ -17,23 +17,6 @@ export default function App() {
             backgroundColor: "#43c7a0",
             color: "#fff",
           }}
-<<<<<<< Updated upstream
-        >
-          <Toolbar>
-            <a href="/" style={{ textDecoration: "none", color: "inherit" }}><Typography variant="h6">TalkBoard</Typography></a>
-          </Toolbar>
-        </AppBar>
-        <Banner />
-        
-        <Routes>
-          {/* 게시글 목록 */}
-          <Route path="/" element={<PostList />} />
-          {/* 게시글 상세보기 */}
-          <Route path="/post/:id" element={<PostForm />} />
-        </Routes>
-      </Container>
-    </>
-=======
           >
             <Toolbar>
               <Typography variant="h6">TalkBoard</Typography>
@@ -49,6 +32,5 @@ export default function App() {
           </Routes> */}
   </Container>
   </>
->>>>>>> Stashed changes
   );
 }
