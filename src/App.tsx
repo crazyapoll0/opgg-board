@@ -2,6 +2,8 @@ import { AppBar, Container, CssBaseline, Toolbar, Typography } from "@mui/materi
 import "./App.css";
 import PostList from "./pages/PostList";
 import AddPost from "./components/AddPost";
+import Banner from "./components/Banner";
+
 
 
 export default function App() {
@@ -11,7 +13,7 @@ export default function App() {
     <CssBaseline />
     <AppBar position="static" 
     sx={{
-            backgroundColor: "#0220375e",
+            backgroundColor: "#43c7a0",
             color: "#fff",
           }}
           >
@@ -19,7 +21,9 @@ export default function App() {
               <Typography variant="h6">TalkBoard</Typography>
             </Toolbar>
           </AppBar>
-          <AddPost/>
+          <Banner />
+          <AddPost />
+          
           <PostList />
           {/* <Routes>
             <Route path="/" element={<PostList />} />

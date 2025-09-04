@@ -5,8 +5,10 @@ type PostDialogContentProps = {
     post: {
         title: string;
         author: string;
+        content: string
         createdAt: string;
-        comments: number;
+        like: number;
+        
     };
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -23,30 +25,16 @@ export default function PostDialogContent({ post, handleChange }: PostDialogCont
                 margin="normal"
             />
             <TextField
-                label="작성자"
-                name="author"
-                value={post.author}
+                label="내용"
+                name="content"
+                value={post.content}
                 onChange={handleChange}
                 fullWidth
                 margin="normal"
+                multiline   // 여러 줄 입력 가능
+                rows={6}  
             />
-            <TextField
-                label="작성일"
-                name="createdAt"
-                value={post.createdAt}
-                onChange={handleChange}
-                fullWidth
-                margin="normal"
-            />
-            <TextField
-                label="댓글 수"
-                name="comments"
-                type="number"
-                value={post.comments}
-                onChange={handleChange}
-                fullWidth
-                margin="normal"
-            />
+          
         </div>
     );
 }

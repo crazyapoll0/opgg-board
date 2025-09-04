@@ -1,10 +1,13 @@
 export type Post = {
   id?: number;
-  title: string;
-  author: string;
-  createdAt: string;
-  comments: number;
+  title?: string;
+  content?: string;
+  author?: string;
+  createdAt?: string;
+  like?: number;
 }
+
+
 
 // export type User = { 
 //     username: string;

@@ -12,9 +12,7 @@ export default function AddPost({ loadPostData }: AddPostProps) {
     const [open, setOpen] = useState(false);
     const [post, setPost] = useState<Post>({
         title: '',
-        author: '',
-        createdAt: '',
-        comments: 0
+        content: '',
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,9 +32,7 @@ export default function AddPost({ loadPostData }: AddPostProps) {
         // 폼 초기화
         setPost({
             title: '',
-            author: '',
-            createdAt: '',
-            comments: 0
+            content:'',
         });
 
         // Dialog 닫기
@@ -64,7 +60,7 @@ export default function AddPost({ loadPostData }: AddPostProps) {
                     <PostDialogContent
                         post={post}
                         handleChange={handleChange}
-                    />
+                    /> 
                 </DialogContent>
 
                 <DialogActions>
