@@ -22,13 +22,14 @@ export default function AddPost({ loadPostData }: AddPostProps) {
     };
 
     const handleSave = async () => {
+        await AddPost(post)
         // 여기서 실제로 API 호출이나 데이터를 저장하는 로직을 추가하세요.
         // 예시로는 `addPost(post)`와 같은 함수로 데이터를 저장할 수 있습니다.
         // await addPost(post);
 
         // 데이터 저장 후, 목록을 새로고침
         loadPostData();
-
+        
         // 폼 초기화
         setPost({
             title: '',

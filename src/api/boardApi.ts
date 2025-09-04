@@ -49,6 +49,17 @@ export const getPostById = async (id: number): Promise<Post | null> => {
   return response.data ?? null;
 };
 
+export const addPost = async (): Promise<Post[]> => {
+  const response = await axios.post(`${BASE_URL}/post`)
+  return response.data;
+}
+
+
+
+
+
+
+
 // 특정 게시글을 가져오는 함수
 // export const getPostById = (id: number): Promise<Post> => {
 //   return getPosts().then((posts) => posts.find((post) => post.id === id) || null);
