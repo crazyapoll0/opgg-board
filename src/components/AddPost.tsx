@@ -3,6 +3,7 @@ import type { Post } from "../type";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 
 import PostDialogContent from "./PostDialogContent";
+import { addPosts } from "../api/boardApi";
 
 type AddPostProps = {
     loadPostData: () => void; // 글 목록을 새로고침하는 함수
@@ -22,7 +23,7 @@ export default function AddPost({ loadPostData }: AddPostProps) {
     };
 
     const handleSave = async () => {
-        await AddPost(post)
+        await addPosts(post)
         // 여기서 실제로 API 호출이나 데이터를 저장하는 로직을 추가하세요.
         // 예시로는 `addPost(post)`와 같은 함수로 데이터를 저장할 수 있습니다.
         // await addPost(post);

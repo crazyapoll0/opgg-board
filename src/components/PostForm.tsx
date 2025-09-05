@@ -10,6 +10,7 @@ export default function PostForm() {
 
           <PostDetail />
           
+          
   </Container>
     )
 }

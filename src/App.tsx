@@ -18,7 +18,15 @@ export default function App() {
           }}
         >
           <Toolbar>
-            <a href="/" style={{ textDecoration: "none", color: "inherit" }}><Typography variant="h6">TalkBoard</Typography></a>
+            <a href="/" style={{ textDecoration: "none", color: "inherit" }}><Typography variant="h6"  sx={{ mr: 4 }}>TalkBoard</Typography></a>
+            {/* 메뉴 텍스트 (임시) */}
+          <div style={{ display: "flex", gap: "20px" }}>
+            <Typography variant="body1">유저찾기</Typography>
+            <Typography variant="body1">배틀그라운드</Typography>
+            <Typography variant="body1">잡담소</Typography>
+            <Typography variant="body1">오버워치</Typography>
+            <Typography variant="body1">양성소</Typography>
+          </div>
           </Toolbar>
         </AppBar>
         <Banner />

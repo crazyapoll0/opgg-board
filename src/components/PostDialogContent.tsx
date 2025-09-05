@@ -4,10 +4,10 @@ import { TextField } from "@mui/material";
 type PostDialogContentProps = {
     post: {
         title: string;
-        author: string;
+        // author: string;
         content: string
-        createdAt: string;
-        like: number;
+        // createdAt: string;
+        // heart: number;
         
     };
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

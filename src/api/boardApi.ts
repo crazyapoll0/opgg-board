@@ -49,10 +49,16 @@ export const getPostById = async (id: number): Promise<Post | null> => {
   return response.data ?? null;
 };
 
-export const addPost = async (): Promise<Post[]> => {
-  const response = await axios.post(`${BASE_URL}/post`)
+export const addPosts = async (post: Post): Promise<Post[]> => {
+  const response = await axios.post(`${BASE_URL}/post`, post)
   return response.data;
 }
+
+export const updatePosts = async (post: Post): Promise<Post[]> => {
+  const response = await axios.put(`${BASE_URL}/post`, post)
+  return response.data;
+}
+
 
 
 

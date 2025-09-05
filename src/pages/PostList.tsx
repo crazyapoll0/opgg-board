@@ -17,9 +17,7 @@ export default function PostList() {
 
 
   useEffect(() => {
-    getPosts()
-      .then((res) => setData(res)) // 데이터 로드 후 상태 업데이트
-      .catch((err) => console.error("데이터를 불러오는데 실패했습니다.", err));
+    loadPostData()
   }, []); // 빈 배열을 두 번째 인자로 넣어 처음 렌더링될 때만 호출
 
 const handleRowClick = (params: GridRowParams) => {
@@ -50,7 +48,7 @@ const handleRowClick = (params: GridRowParams) => {
   return (
     <>
         
-      <AddPost />
+      <AddPost loadPostData={loadPostData}/>
       {/* <Button onClick={loadPostData}>데이터 로드</Button> */}
       <DataGrid
         rows={data}
