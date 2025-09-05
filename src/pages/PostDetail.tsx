@@ -46,34 +46,28 @@ export default function PostDetail() {
 
   return (
     <>
-    
     <div className="post-container">
-      <div className="post-container">
-         <h2>{post.title}</h2>
-      </div>
-      <div className="post-container">
-        <p><strong>작성자:</strong> {post.author}</p>
-      </div>
-      <div className="post-container">
-        <p><strong>작성자:</strong> {post.author}</p>
-      </div>
-      <div className="post-container">
-        <p><strong>작성일:</strong> {post.createdAt}</p>
-      </div>
-      <div className="post-container">
-        <p><strong>내용:</strong> {post.content}</p> {/* 내용이 있을 경우 */}
-      </div>
-      <div className="post-container">
-        <p><strong>좋아요:</strong> {post.heart}</p>
-      </div>
-    </div>
-    <EditPost postData={post} loadPostData={loadPostData}/>
-   
-    <Button onClick={handleDelete} >
-    삭제
-    </Button>
-    </>
-  );
-}
+  {/* 제목 */}
+  <h2 className="post-title">{post.title}</h2>
 
+ {/* 작성자 / 작성일 */}
+  <div className="post-meta">
+    <span>작성자: {post.author}</span>
+    <span>작성일: {post.createdAt}</span>
+  </div>
+  {/* 내용 */}
+  <div className="post-content">{post.content}</div>
+
+  {/* 버튼 영역 */}
+  <div className="post-buttons">
+    <EditPost postData={post} loadPostData={loadPostData} />
+    <button className="button-delete" onClick={handleDelete}>
+      삭제
+    </button>
+    {/* 나중에 MUI Heart 버튼 추가 가능 */}
+  </div>
+</div>
+</>
+  )
+}
 

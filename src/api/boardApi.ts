@@ -4,6 +4,15 @@ import type { Post } from "../type";
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 
+const getAxiosConfig = (): AxiosRequestConfig => {
+    const token = sessionStorage.getItem('jwt');
+    return {
+        headers: {
+            'Authorization': token 
+        }
+    }
+}
+
 // // 전체 게시글을 가져오는 함수
 // export const getPosts = (): Promise<Post[]> => {
 //   return new Promise((resolve) => {

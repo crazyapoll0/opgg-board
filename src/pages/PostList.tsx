@@ -4,10 +4,13 @@ import { DataGrid, type GridColDef, type GridRowParams } from "@mui/x-data-grid"
 import { getPosts } from "../api/boardApi";
 import { useNavigate } from "react-router-dom";
 import AddPost from "../components/AddPost";
+import { useAuthStore } from "../store";
 
 export default function PostList() {
   const [data, setData] = useState<Post[]>([]);
   const navigate = useNavigate()
+  //로그인 상태 가져오기
+  // const { isLoggedIn } = useAuthStore(); 
 
   const loadPostData = () => {
     getPosts()
@@ -48,7 +51,11 @@ const handleRowClick = (params: GridRowParams) => {
   return (
     <>
         
+        {/* 로그인 상태일 때만 AddPost 렌더링 */}
+      {/* {isLoggedIn && <AddPost loadPostData={loadPostData} />} */}
+
       <AddPost loadPostData={loadPostData}/>
+
       {/* <Button onClick={loadPostData}>데이터 로드</Button> */}
       <DataGrid
         rows={data}
