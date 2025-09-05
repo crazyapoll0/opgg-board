@@ -1,36 +1,43 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getPostById, getPosts } from "../api/boardApi"; // 게시글 ID로 데이터를 가져오는 함수
+import { deletePosts, getPostById } from "../api/boardApi"; // 게시글 ID로 데이터를 가져오는 함수
 import type { Post } from "../type"; // Post 타입 정의
 import EditPost from "../components/EditPost";
+import { Button } from "@mui/material";
 
 export default function PostDetail() {
   const { id } = useParams(); // URL에서 ID 추출
   const [post, setPost] = useState<Post |undefined>(undefined);
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate();
  
-   const loadPostData = () => {
-      getPosts()
-        .then((res) => setPost(res))
-        .catch((err) => console.log(err));
-    };
+  const loadPostData = () => {
+    if (!id) return;
+    getPostById(Number(id))
+      .then((res) => setPost(res))
+      .catch((err) => console.log(err));
+  };
 
-   // 게시글 데이터를 가져오는 useEffect
   useEffect(() => {
     if (id) {
-      setLoading(true); // 데이터 요청 전 로딩 상태로 설정
-      getPostById(Number(id)) // ID를 숫자로 변환해서 전달
-        .then((res) => {
-          setPost(res); // 데이터를 받아와서 상태 업데이트
-          setLoading(false); // 데이터 로드 후 로딩 종료
-        })
-        .catch(() => {
-          setPost(undefined); // 에러 시 undefined로 설정
-          setLoading(false); // 로딩 종료
-        });
+      setLoading(true);
+      loadPostData();
+      setLoading(false);
     }
-  }, [id]); // ID가 변경될 때마다 요청
+  }, [id]);
+
+
+   const handleDelete = async () => {
+    if (!id) return;
+    try {
+      await deletePosts(Number(id!));
+      alert("게시글이 삭제되었습니다.");
+      navigate("/"); // 삭제 후 목록 페이지로 이동
+    } catch (err) {
+      console.error(err);
+      alert("삭제 중 오류가 발생했습니다.");
+    }
+  };
 
   if (loading) return <div>로딩 중...</div>;
   if (!post) return <div>게시글이 존재하지 않습니다.</div>;
@@ -62,7 +69,11 @@ export default function PostDetail() {
     </div>
     <EditPost postData={post} loadPostData={loadPostData}/>
    
-    
+    <Button onClick={handleDelete} >
+    삭제
+    </Button>
     </>
   );
 }
+
+

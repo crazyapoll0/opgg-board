@@ -54,15 +54,14 @@ export const addPosts = async (post: Post): Promise<Post[]> => {
   return response.data;
 }
 
-export const updatePosts = async (post: Post): Promise<Post[]> => {
-  const response = await axios.put(`${BASE_URL}/post`, post)
+export const updatePosts = async (id: number, post: Post): Promise<Post[]> => {
+  const response = await axios.put(`${BASE_URL}/post/${id}`, post)
   return response.data;
 }
 
-
-
-
-
+export const deletePosts = async (id: number): Promise<void> => {
+  await axios.delete(`${BASE_URL}/post/${id}`);
+};
 
 
 

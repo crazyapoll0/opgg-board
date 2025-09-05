@@ -1,5 +1,6 @@
 import { Container, CssBaseline } from "@mui/material";
 import PostDetail from "../pages/PostDetail";
+import EditPost from "./EditPost";
 
 export default function PostForm() {
 
@@ -9,7 +10,6 @@ export default function PostForm() {
     <CssBaseline />
 
           <PostDetail />
-          
           
   </Container>
     )

@@ -14,6 +14,7 @@ export default function EditPost({postData, loadPostData}:EditPostProps) {
 
     const [open, setOpen] = useState(false)
     const [post, setPost] = useState<Post>({
+        id: 0,
         title: '',
         content: ''
     })
@@ -25,6 +26,7 @@ export default function EditPost({postData, loadPostData}:EditPostProps) {
 
     const handleOpen = () => {
         setPost({
+            id: postData.id,
             title: postData.title,
             content: postData.content
         })
@@ -35,16 +37,21 @@ export default function EditPost({postData, loadPostData}:EditPostProps) {
         setOpen(false)
     }
 
-    const handleSave = async() => {
-        await updatePosts(post)
-        loadPostData()
-        setPost({
-            title:'',
-            content:''
-        })
-        handleClose()
+   const handleSave = async () => {
+  if (!post.id) {
+    alert("잘못된 게시글입니다 (id 없음)");
+    return;
+  }
+  try {
+    await updatePosts(post.id, post);
+    loadPostData();
+    handleClose();
+  } catch (err) {
+    console.error(err);
+    alert("수정 실패!");
+  }
+};
 
-    }
 
     const handleChange = ( e: React.ChangeEvent<HTMLInputElement> ) => {
         const value = e.target.value
